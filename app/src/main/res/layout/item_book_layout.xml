@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <variable
+            name="book"
+            type="com.example.bookapp.model.Book" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:background="@color/gray"
+        android:paddingHorizontal="16dp"
+        android:paddingVertical="16dp">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/title"
+            style="@style/Book.Info"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@{book.title}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="书名" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/author"
+            style="@style/Book.Info"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:text="@{book.author}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/title"
+            tools:text="作者" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/publishedDate"
+            style="@style/Book.Info"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:text="@{book.publishedDate}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/author"
+            tools:text="发版年份" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/isbn"
+            style="@style/Book.Info"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:text="@{book.isbn}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/publishedDate"
+            tools:text="ISBN字段" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/editBook"
+            android:layout_width="50dp"
+            android:layout_height="30dp"
+            android:background="@color/purple_200"
+            android:text="@string/edit_book"
+            android:textAllCaps="false"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/deleteBook"
+            android:layout_width="50dp"
+            android:layout_height="30dp"
+            android:background="@color/purple_200"
+            android:text="@string/delete_book"
+            android:textAllCaps="false"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
