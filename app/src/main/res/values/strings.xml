@@ -3,4 +3,5 @@
     <string name="book_list_title">My Books</string>
     <string name="edit_book">Edit</string>
     <string name="delete_book">Delete</string>
+    <string name="add_book">Add Book</string>
 </resources>
