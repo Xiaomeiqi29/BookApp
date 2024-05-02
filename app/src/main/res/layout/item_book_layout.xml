@@ -69,17 +69,8 @@
             android:background="@color/purple_200"
             android:text="@string/edit_book"
             android:textAllCaps="false"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
-
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/deleteBook"
-            android:layout_width="50dp"
-            android:layout_height="30dp"
-            android:background="@color/purple_200"
-            android:text="@string/delete_book"
-            android:textAllCaps="false"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

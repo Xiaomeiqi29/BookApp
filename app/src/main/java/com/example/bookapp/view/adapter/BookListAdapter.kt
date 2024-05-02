@@ -6,6 +6,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.example.bookapp.R
 import com.example.bookapp.databinding.ItemBookLayoutBinding
+import com.example.bookapp.extension.rightPosition
 import com.example.bookapp.model.Book
 
 class BookListAdapter(
@@ -39,11 +40,9 @@ class BookListAdapter(
 
         init {
             binding.editBook.setOnClickListener {
-                listener?.editBook()
-            }
-
-            binding.deleteBook.setOnClickListener {
-                listener?.deleteBook()
+                rightPosition(adapterPosition)?.let {
+                    listener?.editBook(books[it])
+                }
             }
         }
 
@@ -54,6 +53,5 @@ class BookListAdapter(
 }
 
 interface OnActionListener {
-    fun editBook()
-    fun deleteBook()
+    fun editBook(book: Book?)
 }

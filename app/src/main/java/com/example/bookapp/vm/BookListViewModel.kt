@@ -22,7 +22,7 @@ class BookListViewModel @Inject constructor(
     private val _books = MutableLiveData<List<Book>>()
     val books: LiveData<List<Book>> = _books
 
-    fun getAllBooks() {
+    fun fetchBookList() {
         viewModelScope.launch {
             try {
                 val books = bookRepository.getAllBooks()

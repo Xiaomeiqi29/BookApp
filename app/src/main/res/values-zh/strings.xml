@@ -4,4 +4,10 @@
     <string name="edit_book">编辑</string>
     <string name="delete_book">删除</string>
     <string name="add_book">添加图书</string>
+    <string name="edit_book_title">编辑图书</string>
+    <string name="save_book">保存</string>
+    <string name="book_name">书名</string>
+    <string name="book_author">作者</string>
+    <string name="book_publishedDate">发版年份</string>
+    <string name="book_isbn">ISBN</string>
 </resources>
