@@ -11,4 +11,5 @@
     <string name="book_publishedDate">Published Date</string>
     <string name="book_isbn">ISBN</string>
     <string name="search_hint">Enter id to search books</string>
+    <string name="no_search_result_hint">There is no book you are looking for</string>
 </resources>

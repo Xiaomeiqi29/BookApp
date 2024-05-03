@@ -5,6 +5,8 @@ import androidx.lifecycle.MediatorLiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.bookapp.BookApp
+import com.example.bookapp.R
 import com.example.bookapp.model.Book
 import com.example.bookapp.repository.BookRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -52,6 +54,9 @@ class BookListViewModel @Inject constructor(
                 inputContent.value?.let {
                     val book = bookRepository.getBookById(it)
                     searchResult.value = book?.body()
+                    if (book?.body() == null) {
+                        _error.value = BookApp.instance.getString(R.string.no_search_result_hint)
+                    }
                 }
             } catch (e: Exception) {
                 _error.value = e.message

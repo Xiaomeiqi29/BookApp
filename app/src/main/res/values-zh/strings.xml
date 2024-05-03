@@ -11,4 +11,5 @@
     <string name="book_publishedDate">发版年份</string>
     <string name="book_isbn">ISBN</string>
     <string name="search_hint">输入id检索图书</string>
+    <string name="no_search_result_hint">未查找到该图书</string>
 </resources>
