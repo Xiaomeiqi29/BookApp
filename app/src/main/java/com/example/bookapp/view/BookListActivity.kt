@@ -2,11 +2,12 @@ package com.example.bookapp.view
 
 import android.app.Activity
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.InputFilter.LengthFilter
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
+import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import com.example.bookapp.R
 import com.example.bookapp.databinding.ActivityBookListBinding
@@ -16,6 +17,7 @@ import com.example.bookapp.view.adapter.BookListAdapter
 import com.example.bookapp.view.adapter.OnActionListener
 import com.example.bookapp.vm.BookListViewModel
 import dagger.hilt.android.AndroidEntryPoint
+
 
 @AndroidEntryPoint
 class BookListActivity : AppCompatActivity(), OnActionListener {
@@ -33,6 +35,8 @@ class BookListActivity : AppCompatActivity(), OnActionListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_book_list)
+        binding.vm = vm
+        binding.lifecycleOwner = this
 
         initViews()
         initObservers()
@@ -49,11 +53,19 @@ class BookListActivity : AppCompatActivity(), OnActionListener {
         binding.addBook.setOnClickListener {
             goToBookDetailActivity()
         }
+
+        binding.iconSearch.setOnClickListener {
+            vm.getBookById()
+        }
     }
 
     private fun initObservers() {
         vm.books.observe(this) {
             bookListAdapter.books = it
+        }
+
+        vm.searchResult.observe(this) {
+
         }
 
         vm.error.observe(this) {

@@ -2,6 +2,7 @@ package com.example.bookapp.repository
 
 import com.example.bookapp.model.Book
 import com.example.bookapp.repository.remote.BookApiService
+import retrofit2.Response
 import javax.inject.Inject
 
 class BookRepositoryImpl @Inject constructor(
@@ -11,19 +12,15 @@ class BookRepositoryImpl @Inject constructor(
         return bookApiService.getAllBooks()
     }
 
-    override suspend fun addBook(book: Book): Book? {
-        return bookApiService.addBook(book)
+    override suspend fun saveBook(book: Book?): Book? {
+        return bookApiService.saveBook(book)
     }
 
-    override suspend fun getBookById(id: String): Book? {
+    override suspend fun getBookById(id: String): Response<Book>? {
         return bookApiService.getBookById(id)
     }
 
     override suspend fun deleteBook(id: String) {
         bookApiService.deleteBook(id)
-    }
-
-    override suspend fun updateBook(book: Book): Book? {
-        return bookApiService.updateBook(book)
     }
 }

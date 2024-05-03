@@ -6,8 +6,8 @@
         <import type="android.view.View" />
 
         <variable
-            name="book"
-            type="com.example.bookapp.model.Book" />
+            name="vm"
+            type="com.example.bookapp.vm.BookDetailViewModel" />
 
     </data>
 
@@ -27,6 +27,16 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/back"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:src="@mipmap/icon_back"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/appBarTitle"
@@ -48,7 +58,7 @@
                     android:background="@color/purple_200"
                     android:text="@string/delete_book"
                     android:textAllCaps="false"
-                    android:visibility="@{book == null ? View.GONE : View.VISIBLE}"
+                    android:visibility="@{vm.originalBook == null ? View.GONE : View.VISIBLE}"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -73,7 +83,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="16dp"
-            android:text="@{book.title}"
+            android:text="@={vm.book.title}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/bookTitle"
             app:layout_constraintTop_toBottomOf="@+id/appBarLayout"
@@ -97,7 +107,7 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="16dp"
             android:layout_marginTop="6dp"
-            android:text="@{book.author}"
+            android:text="@={vm.book.author}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/bookAuthor"
             app:layout_constraintTop_toBottomOf="@+id/title"
@@ -121,7 +131,8 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="16dp"
             android:layout_marginTop="6dp"
-            android:text="@{book.publishedDate}"
+            android:inputType="number"
+            android:text="@={vm.book.publishedDate}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/bookPublishedDate"
             app:layout_constraintTop_toBottomOf="@+id/author"
@@ -145,7 +156,8 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="16dp"
             android:layout_marginTop="6dp"
-            android:text="@{book.isbn}"
+            android:inputType="number"
+            android:text="@={vm.book.isbn}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/bookISBN"
             app:layout_constraintTop_toBottomOf="@+id/publishedDate"
@@ -158,7 +170,8 @@
             android:layout_marginHorizontal="100dp"
             android:layout_marginTop="32dp"
             android:layout_marginBottom="100dp"
-            android:background="@color/purple_200"
+            android:enabled="@{vm.buttonEnable}"
+            android:background="@drawable/selector_button"
             android:text="@string/save_book"
             android:textAllCaps="false"
             app:layout_constraintTop_toBottomOf="@+id/isbn" />
